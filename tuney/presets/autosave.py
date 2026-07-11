@@ -37,7 +37,7 @@ class Autosave(BaseModel, frozen=True):
         language = state.mapper.language
         if not (
             state.gui
-            and not state.skip_startup_files
+            and not startup_modifier_held()
             and self.path.exists()
             and not (state.config_file or state.preset or state.text or state.text_args)
         ):
